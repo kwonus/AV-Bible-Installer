@@ -24,6 +24,7 @@
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
     <ROW Directory="AppDataFolder" Directory_Parent="TARGETDIR" DefaultDir="APPDAT~1|AppDataFolder" IsPseudoRoot="1"/>
     <ROW Directory="Assets" Directory_Parent="TARGETDIR" DefaultDir="Assets" IsPseudoRoot="1"/>
+    <ROW Directory="Data_Dir" Directory_Parent="APPDIR" DefaultDir="Data"/>
     <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
     <ROW Directory="Help_Dir" Directory_Parent="APPDIR" DefaultDir="Help"/>
     <ROW Directory="NewFolder_Dir" Directory_Parent="AppDataFolder" DefaultDir="AV-Bible"/>
@@ -42,6 +43,7 @@
     <ROW Component="AVEngine.dll" ComponentId="{B5671EAA-95DB-4148-B8E9-CE40E45BB0E3}" Directory_="APPDIR" Attributes="0" KeyPath="AVEngine.dll"/>
     <ROW Component="AVSearch.dll" ComponentId="{F20883D8-5482-4045-9672-F9B739F1C3DE}" Directory_="APPDIR" Attributes="0" KeyPath="AVSearch.dll"/>
     <ROW Component="AVXLib.dll" ComponentId="{F7317584-E0CB-46CD-8B79-77BECBF3B0BC}" Directory_="APPDIR" Attributes="0" KeyPath="AVXLib.dll"/>
+    <ROW Component="AVXOmega.data" ComponentId="{2557DCA5-6FA5-4513-872E-9CDF2C0AB86A}" Directory_="Data_Dir" Attributes="0" KeyPath="AVXOmega.data" Type="0"/>
     <ROW Component="Blacklight.Controls.Wpf.dll" ComponentId="{44429261-BFAA-499F-9671-64DD7CA26AC6}" Directory_="APPDIR" Attributes="0" KeyPath="Blacklight.Controls.Wpf.dll"/>
     <ROW Component="BlueprintBlueLib.dll" ComponentId="{60DA5FD3-0B1D-43AC-8B3E-3D6999011C42}" Directory_="APPDIR" Attributes="0" KeyPath="BlueprintBlueLib.dll"/>
     <ROW Component="Microsoft.Web.WebView2.Core.dll" ComponentId="{125B85F4-2C7C-4230-BF97-0B4E2BE13C09}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.WebView2.Core.dll"/>
@@ -230,6 +232,10 @@
     <ROW File="Microsoft.Windows.SDK.NET.dll" Component_="Microsoft.Windows.SDK.NET.dll" FileName="MICROS~3.DLL|Microsoft.Windows.SDK.NET.dll" Attributes="0" SourcePath="..\AVBible\bin\x64\Release\net8.0-windows10.0.17763.0\Microsoft.Windows.SDK.NET.dll" SelfReg="false"/>
     <ROW File="Microsoft.Web.WebView2.Wpf.dll" Component_="Microsoft.Web.WebView2.Wpf.dll" FileName="MICROS~4.DLL|Microsoft.Web.WebView2.Wpf.dll" Attributes="0" SourcePath="..\AVBible\bin\x64\Release\net8.0-windows10.0.17763.0\Microsoft.Web.WebView2.Wpf.dll" SelfReg="false"/>
     <ROW File="settings.yaml_1" Component_="settings.yaml_1" FileName="SETTIN~1.YAM|settings.yaml" Attributes="0" SourcePath="..\..\Users\Me\AppData\Roaming\AV-Bible\settings.yaml" SelfReg="false"/>
+    <ROW File="AVXOmega.data" Component_="AVXOmega.data" FileName="AVX-OM~1.DAT|AVX-Omega.data" Attributes="0" SourcePath="..\AVBible\Data\AVX-Omega.data" SelfReg="false"/>
+    <ROW File="AVXOmega.md5" Component_="AVXOmega.data" FileName="AVX-OM~1.MD5|AVX-Omega.md5" Attributes="0" SourcePath="..\AVBible\Data\AVX-Omega.md5" SelfReg="false"/>
+    <ROW File="AVXOmega.txt" Component_="AVXOmega.data" FileName="AVX-OM~1.TXT|AVX-Omega.txt" Attributes="0" SourcePath="..\AVBible\Data\AVX-Omega.txt" SelfReg="false"/>
+    <ROW File="en_US.txt" Component_="AVXOmega.data" FileName="en_US.txt" Attributes="0" SourcePath="..\AVBible\Data\en_US.txt" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppXCfgComponent">
     <ROW ID="Configuration" Order="1" ManifestFile="AppxManifest.xml" TargetOs="4" AutoUpdatesFrequency="0" AutoUpdatesOptions="0" ManifestBundleFile="AppxBundleManifest.xml"/>
@@ -491,6 +497,7 @@
     <ROW Feature_="MainFeature" Component_="Microsoft.Web.WebView2.Wpf.dll"/>
     <ROW Feature_="MainFeature" Component_="WinRT.Runtime.dll"/>
     <ROW Feature_="MainFeature" Component_="settings.yaml_1"/>
+    <ROW Feature_="MainFeature" Component_="AVXOmega.data"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="gutenburgpress256.exe" SourcePath="..\AVBible\gutenburg-press-256.ico" Index="0"/>
@@ -540,7 +547,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
     <ROW PrereqKey="D09784F374E3A9F5FB0AFDC657291" DisplayName="Microsoft Edge WebView2 Runtime (web installer)" VersionMin="128.0" SetupFileUrl="https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/657da03c-2d6c-4d00-893f-d6c129225760/MicrosoftEdgeWebview2Setup.exe" Location="1" ExactSize="0" WinNTVersions="Windows 8 x86" WinNT64Versions="Windows 8 x64" Operator="1" NoUiComLine="/silent /install" Options="ymc" TargetName="WebView2"/>
-    <ROW PrereqKey="MICROSOFT.NETSDK8" DisplayName="Microsoft .NET SDK 8.0.404 (x64)" VersionMin="8.4.424.52308" SetupFileUrl="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.11-windows-x64-installer" Location="1" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" Operator="1" Options="ikx"/>
+    <ROW PrereqKey="MICROSOFT.NETSDK8" DisplayName="Microsoft .NET SDK 8.0.404 (x64)" VersionMin="8.4.424.52308" SetupFileUrl="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.11-windows-x64-installer" Location="1" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" Operator="1" Options="ikx" TargetName="Microsoft .NET SDK 8.0.404 (x64)"/>
     <ATTRIBUTE name="PrereqsOrder" value="D09784F374E3A9F5FB0AFDC657291 MICROSOFT.NETSDK8"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
