@@ -139,7 +139,7 @@ begin
     end;
     
     // Write the converted path to the registry if the task is selected
-    RegWriteStringValue(HKCU, 'Software\Microsoft\Office\Word\Addins\AV-Bible-Addin', 'Manifest', AppPath + '/Addin/AV-Bible-Addin.vsto|vstolocal');
+    RegWriteStringValue(HKCU, 'Software\Microsoft\Office\Word\Addins\AV-Bible-Addin', 'Manifest', 'file:///' + AppPath + '/Addin/AV-Bible-Addin.vsto|vstolocal');
   end;
 end;
 
@@ -147,7 +147,6 @@ procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 begin
   RegDeleteValue(HKCU, 'Software\Microsoft\Office\Word\Addins\AV-Bible-Addin', 'Manifest');
 end;
-
 
 [Registry]
 Root: HKCU; Subkey: Software\Microsoft\Windows\CurrentVersion\Run; ValueType: string; \
